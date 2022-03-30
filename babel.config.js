@@ -7,8 +7,8 @@ module.exports = {
       {
         framework: 'react',
         ts: true
-      },
-    ],
+      }
+    ]
   ],
   plugins: [
     [
@@ -17,7 +17,7 @@ module.exports = {
         libraryName: 'taro-hooks',
         camel2DashComponentName: false
       },
-      'taro-hooks',
+      'taro-hooks'
     ]
-  ],
-};
+  ]
+}
