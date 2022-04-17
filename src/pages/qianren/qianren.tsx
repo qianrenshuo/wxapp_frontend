@@ -2,13 +2,11 @@ import { Button, Image, Text, View } from '@tarojs/components'
 import React, { useCallback } from 'react'
 import { useEnv, useModal, useNavigationBar, useToast } from 'taro-hooks'
 
-import './index.styl'
-
-import logo from './hook.png'
+import logo from '../index/hook.png'
 
 const Index = () => {
   const env = useEnv()
-  const [_title, { setTitle }] = useNavigationBar({ title: '前人说' })
+  const [_, { setTitle }] = useNavigationBar({ title: 'Taro Hooks' })
   const [show] = useModal({
     title: 'Taro Hooks!',
     showCancel: false,

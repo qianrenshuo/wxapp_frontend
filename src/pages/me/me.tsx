@@ -2,13 +2,13 @@ import { Button, Image, Text, View } from '@tarojs/components'
 import React, { useCallback } from 'react'
 import { useEnv, useModal, useNavigationBar, useToast } from 'taro-hooks'
 
-import './index.styl'
+import './me.styl'
 
-import logo from './hook.png'
+import logo from '../index/hook.png'
 
 const Index = () => {
   const env = useEnv()
-  const [_title, { setTitle }] = useNavigationBar({ title: '前人说' })
+  const [_, { setTitle }] = useNavigationBar({ title: 'Taro Hooks' })
   const [show] = useModal({
     title: 'Taro Hooks!',
     showCancel: false,
@@ -18,9 +18,9 @@ const Index = () => {
   })
   const [showToast] = useToast({ mask: true })
 
-  const handleModal = useCallback(async () => {
-    await show({ content: '不如给一个star⭐️!' }).then(async () => {
-      await showToast({ title: '点击了支持!' })
+  const handleModal = useCallback(() => {
+    show({ content: '不如给一个star⭐️!' }).then(() => {
+      showToast({ title: '点击了支持!' })
     })
   }, [show, showToast])
 
@@ -36,10 +36,10 @@ const Index = () => {
         <Text className="label">运行环境</Text>
         <Text className="note">{env}</Text>
       </View>
-      <Button className="button" onClick={(async () => await setTitle('Taro Hooks Nice!')) as any}>
+      <Button className="button" onClick={async () => await setTitle('Taro Hooks Nice!')}>
         设置标题
       </Button>
-      <Button className="button" onClick={handleModal as any}>
+      <Button className="button" onClick={handleModal}>
         使用Modal
       </Button>
     </View>
